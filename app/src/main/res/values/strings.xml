@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PermissionRequest</string>
+    <string name="app_name">Android Debug Assistant</string>
     <string name="text_aid">Android ID:</string>
     <string name="toast_aid_failed">Get Android ID failed.</string>
     <string name="button_copy">Copy</string>

@@ -8,8 +8,6 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.singun.debug.R;
-
 public class MainActivity extends Activity implements View.OnClickListener {
     private String mAndroidId;
 

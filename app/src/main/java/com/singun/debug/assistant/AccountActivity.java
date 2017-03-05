@@ -13,8 +13,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.singun.debug.R;
-
 public class AccountActivity extends Activity implements View.OnClickListener {
     private static final int REQUEST_CODE = 10086;
 
