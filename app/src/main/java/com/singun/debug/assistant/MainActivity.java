@@ -25,6 +25,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         } else {
             Toast.makeText(this, R.string.toast_aid_failed, Toast.LENGTH_SHORT).show();
         }
+        String cpuAbi = SysUtil.getCpuAbi();
+        ((TextView) findViewById(R.id.text_cpu_abi)).setText(cpuAbi);
 
         findViewById(R.id.btn_copy).setOnClickListener(this);
         findViewById(R.id.btn_request_usage).setOnClickListener(this);

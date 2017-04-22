@@ -21,6 +21,20 @@ public class SysUtil {
     }
 
     @SuppressWarnings("deprecation")
+    public static String getCpuAbi() {
+        String abi = "";
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            abi = Build.CPU_ABI;
+        } else {
+            for (String cpu : Build.SUPPORTED_ABIS) {
+                abi += cpu;
+                abi += " ";
+            }
+        }
+        return abi;
+    }
+
+    @SuppressWarnings("deprecation")
     public static boolean copyToClipboard(Context context, String content) {
         boolean result = false;
         try {

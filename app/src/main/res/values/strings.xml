@@ -3,6 +3,7 @@
     <string name="text_aid">Android ID:</string>
     <string name="toast_aid_failed">Get Android ID failed.</string>
     <string name="button_copy">Copy</string>
+    <string name="text_cpu_abi">CPU ABI:</string>
     <string name="toast_copy">Android ID has been copied to clipboard.</string>
     <string name="toast_copy_failed">Copy Android ID failed.</string>
     <string name="text_notice">Click buttons below to request permissions.</string>
