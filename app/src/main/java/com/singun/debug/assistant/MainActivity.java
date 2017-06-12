@@ -2,6 +2,7 @@ package com.singun.debug.assistant;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -33,6 +34,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         findViewById(R.id.btn_request_float).setOnClickListener(this);
         findViewById(R.id.btn_app_setting).setOnClickListener(this);
         findViewById(R.id.btn_show_accounts).setOnClickListener(this);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            View batteryView = findViewById(R.id.btn_batteryopt_setting);
+            batteryView.setVisibility(View.VISIBLE);
+            batteryView.setOnClickListener(this);
+        }
     }
 
     @Override
@@ -49,6 +55,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.btn_app_setting:
                 onAppSettingClick();
+                break;
+            case R.id.btn_batteryopt_setting:
+                onBatteryOptimizationSettingClick();
                 break;
             case R.id.btn_show_accounts:
                 onShowAccountsClick();
@@ -84,6 +93,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private void onAppSettingClick() {
         boolean result = PermissionUtil.checkAndStartApplicationSettingActivity(this);
+        if (!result) {
+            Toast.makeText(this, R.string.failed_start_activity, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void onBatteryOptimizationSettingClick() {
+        boolean result = PermissionUtil.checkAndStartBatteryOptimizationSettingActivity(this);
         if (!result) {
             Toast.makeText(this, R.string.failed_start_activity, Toast.LENGTH_SHORT).show();
         }

@@ -49,6 +49,10 @@ public class PermissionUtil {
         return checkAndStartSettingActivity(context, Settings.ACTION_APPLICATION_SETTINGS);
     }
 
+    public static boolean checkAndStartBatteryOptimizationSettingActivity(Context context) {
+        return checkAndStartSettingActivity(context, Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS);
+    }
+
     public static boolean checkAndStartSyncSettingActivity(Context context) {
         return checkAndStartSettingActivity(context, Settings.ACTION_SYNC_SETTINGS);
     }
