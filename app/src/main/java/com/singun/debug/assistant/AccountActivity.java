@@ -5,11 +5,14 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Process;
+import android.provider.Settings;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -33,6 +36,17 @@ public class AccountActivity extends Activity implements View.OnClickListener {
         mAccountList = (ListView) findViewById(R.id.account_list);
         mAccountAdapter = new ArrayAdapter<>(this, android.R.layout.simple_expandable_list_item_1);
         mAccountList.setAdapter(mAccountAdapter);
+        mAccountList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Account account = mAccountAdapter.getItem(i);
+                if (account != null) {
+                    Intent intent = new Intent(Settings.ACTION_SYNC_SETTINGS);
+//                    intent.putExtra(Settings.EXTRA_AUTHORITIES, new String[] {account.type});
+                    startActivity(intent);
+                }
+            }
+        });
         findViewById(R.id.btn_request_account_permission).setOnClickListener(this);
         findViewById(R.id.btn_sync_setting).setOnClickListener(this);
 
