@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
 
@@ -51,6 +52,12 @@ public class PermissionUtil {
 
     public static boolean checkAndStartBatteryOptimizationSettingActivity(Context context) {
         return checkAndStartSettingActivity(context, Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS);
+    }
+
+    public static void requestIgnoreBatteryOptimizationSettingActivity(Context context) {
+        Intent intent = new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
+        intent.setData(Uri.parse("package:" + SysUtil.getPackageName(context)));
+        context.startActivity(intent);
     }
 
     public static boolean checkAndStartSyncSettingActivity(Context context) {

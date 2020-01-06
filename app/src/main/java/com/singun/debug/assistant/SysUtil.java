@@ -51,4 +51,14 @@ public class SysUtil {
         }
         return result;
     }
+
+    public static String getPackageName(Context pContext) {
+        String packageName = "";
+        try {
+            packageName = pContext.getPackageName();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return packageName;
+    }
 }

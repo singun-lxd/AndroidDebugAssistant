@@ -11,6 +11,7 @@
     <string name="button_request_float">Float Permission Setting</string>
     <string name="button_app_setting">Application Setting</string>
     <string name="button_batteryopt_setting">Battery Optimization Setting</string>
+    <string name="button_request_batteryopt">Request Ignore Battery Optimization</string>
     <string name="failed_start_activity">No permission setting found.</string>
     <string name="title_accounts">Accounts</string>
     <string name="text_show_accounts">Click button below to view account info.</string>

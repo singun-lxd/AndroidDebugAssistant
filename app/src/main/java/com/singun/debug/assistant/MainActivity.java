@@ -38,6 +38,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
             View batteryView = findViewById(R.id.btn_batteryopt_setting);
             batteryView.setVisibility(View.VISIBLE);
             batteryView.setOnClickListener(this);
+
+            View batteryBtn = findViewById(R.id.btn_batteryopt_dialog);
+            batteryBtn.setVisibility(View.VISIBLE);
+            batteryBtn.setOnClickListener(this);
         }
     }
 
@@ -58,6 +62,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.btn_batteryopt_setting:
                 onBatteryOptimizationSettingClick();
+                break;
+            case R.id.btn_batteryopt_dialog:
+                onRequestIgnoreBatteryOptimizationClick();
                 break;
             case R.id.btn_show_accounts:
                 onShowAccountsClick();
@@ -103,6 +110,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
         if (!result) {
             Toast.makeText(this, R.string.failed_start_activity, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void onRequestIgnoreBatteryOptimizationClick() {
+        PermissionUtil.requestIgnoreBatteryOptimizationSettingActivity(this);
     }
 
     private void onShowAccountsClick() {
